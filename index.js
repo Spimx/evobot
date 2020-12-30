@@ -80,4 +80,25 @@ client.on("message", async (message) => {
     console.error(error);
     message.reply("There was an error executing that command.").catch(console.error);
   }
+  //Commands
+  if(command === 'clear') {
+    client.commands.get('clear').execute(message, args);
+    //Kick
+  }  else if(command === 'kick'){
+    client.commands.get('kick').execute(message, args);
+    //Ban
+  }  else if(command === 'ban'){
+    client.commands.get('ban').execute(message, args);
+    //Mute
+  }  else if(command === 'mute'){
+    client.commands.get('mute').execute(message, args);
+    //Unmute
+  }  else if(command === 'unmute'){
+    client.commands.get('unmute').execute(message, args);
+  }  else if(command === 'play'){
+    client.commands.get('play').execute(message, args);
+  }  else if(command === 'leave'){
+    client.commands.get('leave').execute(message, args);
+  }
+
 });
