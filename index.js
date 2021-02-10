@@ -25,6 +25,13 @@ client.on("ready", () => {
 client.on("warn", (info) => console.log(info));
 client.on("error", console.error);
 
+client.on('guildMemberAdd', guildMember =>{
+    let welcomeRole = guildMember.guild.roles.cache.find(role => role.name === 'Members');
+    
+    guildMember.roles.add(welcomeRole);
+    guildMember.guild.channels.cache.get('793680981193523232').send(`Welcome <@${guildMember.user.id}> to Cloud Craft!`)
+});
+
 /**
  * Import all commands
  */
