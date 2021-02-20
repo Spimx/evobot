@@ -23,7 +23,7 @@ module.exports = {
             if (!reaction.message.guild) return;
  
             if (reaction.message.channel.id == channel) {
-                if (reaction.emoji.name === yellowTeamEmoji) {
+                if (reaction.emoji.name === cloudsmpemote) {
                     await reaction.message.guild.members.cache.get(user.id).roles.add(cloudsmp);
                 }
             } else {
@@ -41,7 +41,7 @@ module.exports = {
  
  
             if (reaction.message.channel.id == channel) {
-                if (reaction.emoji.name === yellowTeamEmoji) {
+                if (reaction.emoji.name === cloudsmpemote) {
                     await reaction.message.guild.members.cache.get(user.id).roles.remove(cloudsmp);
                 }
             } else {
