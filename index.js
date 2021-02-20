@@ -96,13 +96,13 @@ client.on("message", async (message) => {
  
  client.on('message', message => {
  
-    if (!message.content.startsWith(prefix) || message.author.bot) return;
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
  
-    const args = message.content.slice(prefix.length).split(/ +/);
-    const command = args.shift().toLowerCase();
-    if (command === 'reactionrole') {
-        client.commands.get('reactionrole').execute(message, args, Discord, client);
-    }
+  const args = message.content.slice(prefix.length).split(/ +/);
+  const command = args.shift().toLowerCase();
+  if (command === 'reactionrole') {
+      client.commands.get('reactionrole').execute(message, args, Discord, client);
+  }
   
   if(command === 'clear') {
     client.commands.get('clear').execute(message, args);
@@ -123,4 +123,5 @@ client.on("message", async (message) => {
   }  else if(command === 'leave'){
     client.commands.get('leave').execute(message, args);
   }
+  
 });
