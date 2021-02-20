@@ -1,7 +1,7 @@
 /**
  * Module Imports
  */
-const Discord = require('discord.js');
+const { Client, CategoryChannel, MessageEmbed } = require("discord.js")
 const { Client, Collection } = require("discord.js");
 const { readdirSync } = require("fs");
 const { join } = require("path");
