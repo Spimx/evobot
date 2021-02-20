@@ -3,18 +3,18 @@ module.exports = {
     description: "Sets up a reaction role message!",
     async execute(message, args, Discord, client) {
         const channel = '812744504963629106';
-        const cloudsmp = message.guild.roles.cache.find(role => role.name === "Cloud SMP");
+        const cloudrole = message.guild.roles.cache.find(role => role.name === "Cloud SMP");
  
-        const cloudsmpemote = ':cloud:';
+        const cloudemote = ':cloud:';
  
         let embed = new Discord.MessageEmbed()
             .setColor('#e42643')
-            .setTitle('CloudSMP Role')
+            .setTitle('CloudSMP role')
             .setDescription('Get your CloudSMP role here if you are in the server!\n\n'
-                + `${cloudsmpemote} for CloudSMP`);
+                + `${cloudemote} For role`);
  
         let messageEmbed = await message.channel.send(embed);
-        messageEmbed.react(cloudsmpemote);
+        messageEmbed.react(cloudemote);
  
         client.on('messageReactionAdd', async (reaction, user) => {
             if (reaction.message.partial) await reaction.message.fetch();
@@ -23,8 +23,8 @@ module.exports = {
             if (!reaction.message.guild) return;
  
             if (reaction.message.channel.id == channel) {
-                if (reaction.emoji.name === cloudsmpemote) {
-                    await reaction.message.guild.members.cache.get(user.id).roles.add(cloudsmp);
+                if (reaction.emoji.name === cloudemote) {
+                    await reaction.message.guild.members.cache.get(user.id).roles.add(cloudrole);
                 }
             } else {
                 return;
@@ -41,8 +41,8 @@ module.exports = {
  
  
             if (reaction.message.channel.id == channel) {
-                if (reaction.emoji.name === cloudsmpemote) {
-                    await reaction.message.guild.members.cache.get(user.id).roles.remove(cloudsmp);
+                if (reaction.emoji.name === cloudemote) {
+                    await reaction.message.guild.members.cache.get(user.id).roles.remove(cloudrole);
                 }
             } else {
                 return;
