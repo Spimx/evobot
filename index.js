@@ -16,6 +16,10 @@ client.queue = new Map();
 const cooldowns = new Collection();
 const escapeRegex = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
+const fs = require('fs');
+ 
+client.commands = new Discord.Collection();
+
 /**
  * Client Events
  */
