@@ -95,9 +95,6 @@ client.on("message", async (message) => {
   //Commands
  
  client.on('message', message => {
- 
-  const args = message.content.slice(prefix.length).split(/ +/);
-  const command = args.shift().toLowerCase();
   
   if(command === 'clear') {
     client.commands.get('clear').execute(message, args);
