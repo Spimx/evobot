@@ -11,7 +11,7 @@ module.exports = {
             .setColor('#e42643')
             .setTitle('CloudSMP Role')
             .setDescription('Get your CloudSMP role here if you are in the server!\n\n'
-                + `${cloudsmpemote} for CloudSMP`
+                + `${cloudsmpemote} for CloudSMP`);
  
         let messageEmbed = await message.channel.send(embed);
         messageEmbed.react(cloudsmpemote);
