@@ -7,6 +7,7 @@ const { readdirSync } = require("fs");
 const { join } = require("path");
 const { TOKEN, PREFIX } = require("./util/EvobotUtil");
 
+const fs = require('fs');
 const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION" ]});
 
 client.login(TOKEN);
@@ -15,10 +16,6 @@ client.prefix = PREFIX;
 client.queue = new Map();
 const cooldowns = new Collection();
 const escapeRegex = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-
-const fs = require('fs');
- 
-client.commands = new Discord.Collection();
 
 /**
  * Client Events
@@ -93,9 +90,6 @@ client.on("message", async (message) => {
     message.reply("There was an error executing that command.").catch(console.error);
   }
   //Commands
- 
- client.on('message', message => {
-  
   if(command === 'clear') {
     client.commands.get('clear').execute(message, args);
     //Kick
@@ -115,8 +109,7 @@ client.on("message", async (message) => {
   }  else if(command === 'leave'){
     client.commands.get('leave').execute(message, args);
   }
-     else if (command === 'reactionrole') {
+     else if(command === 'reactionrole') {
     client.commands.get('reactionrole').execute(message, args, Discord, client);
   }
-  
 });
