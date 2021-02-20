@@ -3,18 +3,22 @@ module.exports = {
     description: "Sets up a reaction role message!",
     async execute(message, args, Discord, client) {
         const channel = '812744504963629106';
-        const cloudrole = message.guild.roles.cache.find(role => role.name === "Cloud SMP");
+        const yellowTeamRole = message.guild.roles.cache.find(role => role.name === "Cloud SMP");
+        const blueTeamRole = message.guild.roles.cache.find(role => role.name === "Little Kids");
  
-        const cloudemote = ':cloud:';
+        const yellowTeamEmoji = ':lemon:';
+        const blueTeamEmoji = ':apple:';
  
         let embed = new Discord.MessageEmbed()
             .setColor('#e42643')
-            .setTitle('CloudSMP role')
-            .setDescription('Get your CloudSMP role here if you are in the server!\n\n'
-                + `${cloudemote} For role`);
+            .setTitle('Choose a team to play on!')
+            .setDescription('Choosing a team will allow you to interact with your teammates!\n\n'
+                + `${yellowTeamEmoji} for yellow team\n`
+                + `${blueTeamEmoji} for blue team`);
  
         let messageEmbed = await message.channel.send(embed);
-        messageEmbed.react(cloudemote);
+        messageEmbed.react(yellowTeamEmoji);
+        messageEmbed.react(blueTeamEmoji);
  
         client.on('messageReactionAdd', async (reaction, user) => {
             if (reaction.message.partial) await reaction.message.fetch();
@@ -23,8 +27,11 @@ module.exports = {
             if (!reaction.message.guild) return;
  
             if (reaction.message.channel.id == channel) {
-                if (reaction.emoji.name === cloudemote) {
-                    await reaction.message.guild.members.cache.get(user.id).roles.add(cloudrole);
+                if (reaction.emoji.name === yellowTeamEmoji) {
+                    await reaction.message.guild.members.cache.get(user.id).roles.add(yellowTeamRole);
+                }
+                if (reaction.emoji.name === blueTeamEmoji) {
+                    await reaction.message.guild.members.cache.get(user.id).roles.add(blueTeamRole);
                 }
             } else {
                 return;
@@ -41,8 +48,11 @@ module.exports = {
  
  
             if (reaction.message.channel.id == channel) {
-                if (reaction.emoji.name === cloudemote) {
-                    await reaction.message.guild.members.cache.get(user.id).roles.remove(cloudrole);
+                if (reaction.emoji.name === yellowTeamEmoji) {
+                    await reaction.message.guild.members.cache.get(user.id).roles.remove(yellowTeamRole);
+                }
+                if (reaction.emoji.name === blueTeamEmoji) {
+                    await reaction.message.guild.members.cache.get(user.id).roles.remove(blueTeamRole);
                 }
             } else {
                 return;
