@@ -1,8 +1,8 @@
 /**
  * Module Imports
  */
-const { Client, CategoryChannel, MessageEmbed } = require("discord.js")
-const { Client, Collection } = require("discord.js");
+
+const { Client, Collection, CategoryChannel, MessageEmbed } = require("discord.js");
 const { readdirSync } = require("fs");
 const { join } = require("path");
 const { TOKEN, PREFIX } = require("./util/EvobotUtil");
