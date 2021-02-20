@@ -2,7 +2,7 @@ module.exports = {
     name: 'reactionrole',
     description: "Sets up a reaction role message!",
     async execute(message, args, Discord, client) {
-        const channel = '812693159121387540';
+        const channel = '812744504963629106';
         const cloudsmp = message.guild.roles.cache.find(role => role.name === "Cloud SMP");
  
         const cloudsmpemote = ':cloud:';
